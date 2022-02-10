@@ -3,7 +3,6 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import '../css/common.css';
 import 'flatpickr/dist/flatpickr.min.css';
-import { Console } from "console";
 
 const inputEl = document.querySelector("#datetime-picker");
 const startBtn = document.querySelector('button[data-start]');
