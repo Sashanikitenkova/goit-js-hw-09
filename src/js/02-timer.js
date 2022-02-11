@@ -43,6 +43,7 @@ const options = {
           }, 1000);
 
           if ((fp.selectedDates[0].getTime() - new Date().getTime()) == 0) {
+            startBtn.disabled = true;
             clearInterval(intervalId);
           };
          });
