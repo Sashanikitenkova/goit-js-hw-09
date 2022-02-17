@@ -40,12 +40,13 @@ const options = {
                      const time = convertMs(ms);
                      updateClockface(time);
 
+                     if ((fp.selectedDates[0].getTime() - new Date().getTime()) == 0) {
+                      startBtn.disabled = true;
+                      clearInterval(intervalId);
+                    };
+
           }, 1000);
 
-          if ((fp.selectedDates[0].getTime() - new Date().getTime()) == 0) {
-            startBtn.disabled = true;
-            clearInterval(intervalId);
-          };
          });
 
   function addLeadingZero(value) {
