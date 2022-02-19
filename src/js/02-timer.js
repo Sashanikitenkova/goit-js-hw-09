@@ -40,12 +40,12 @@ const options = {
                      const time = convertMs(ms);
                      updateClockface(time);
 
-                     if ((fp.selectedDates[0].getTime() - new Date().getTime()) == 0) {
-                      startBtn.disabled = true;
-                      clearInterval(intervalId);
-                    };
-
           }, 1000);
+
+          if (time < 1000) {
+            startBtn.disabled = true;
+            clearInterval(intervalId);
+          };
 
          });
 
@@ -59,7 +59,7 @@ const options = {
     const minute = second * 60;
     const hour = minute * 60;
     const day = hour * 24;
-  
+
     // Remaining days
     const days = addLeadingZero(Math.floor(ms / day));
     // Remaining hours
