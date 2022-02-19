@@ -35,18 +35,20 @@ const options = {
 
   startBtn.addEventListener("click", () => {
            intervalId = setInterval(() => {
-                     const ms = fp.selectedDates[0].getTime() - new Date().getTime();
-                     console.log(ms);
-                     const time = convertMs(ms);
-                     updateClockface(time);
+            const ms = fp.selectedDates[0].getTime() - new Date().getTime();
+            console.log(ms);
 
+            if (ms < 0) {
+              startBtn.disabled = true;
+              clearInterval(intervalId);
+            } else {
+              console.log(ms);
+              const time = convertMs(ms);
+              updateClockface(time);
+              console.log('time', time);
+              console.log('ms', ms);
+            }
           }, 1000);
-
-          if (time < 1000) {
-            startBtn.disabled = true;
-            clearInterval(intervalId);
-          };
-
          });
 
   function addLeadingZero(value) {
